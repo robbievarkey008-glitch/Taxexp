@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Deny ALL client-side access.
+    // Certificate files are served exclusively via short-lived signed URLs
+    // generated server-side by the Remix app (app/lib/storage.server.ts).
+    // The Admin SDK bypasses these rules — only client SDK access is blocked.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

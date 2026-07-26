@@ -1,0 +1,2079 @@
+npm warn Unknown project config "shamefully-hoist". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> dev
+> shopify app dev
+
+╭─ info ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Using shopify.app.toml for default values:                                  │
+│                                                                              │
+│    • Org:             RoLabs                                                 │
+│    • App:             tax-exemption-manager                                  │
+│    • Dev store:       tax-exempt-dev.myshopify.com                           │
+│    • Update URLs:     Yes                                                    │
+│                                                                              │
+│   You can pass `--reset` to your command to reset your app configuration.    │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+Preview URL: https://admin.shopify.com/store/tax-exempt-dev/apps/11ab8143e646040a98994029dda86aa8?dev-console=show
+GraphiQL URL (Admin API): http://localhost:3457/graphiql?key=e15f0127965885e0c2d9f86d7a357d45031cf0be11fcc24bfa0a336a9b10ed38
+Preparing dev preview on tax-exempt-dev.myshopify.comProxy server started on port 55577 GraphiQL server started on port 3457npm warn Unknown env config "shamefully-hoist". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "shamefully-hoist". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn allow-scripts .npmrc allow-scripts setting is being ignored because --allow-scripts was passed on the command line
+  ⚠️  Future Flag Warning: Route middleware support is changing in React Router v8.
+     You can use the `future.v8_middleware` flag to opt in early.
+     -> https://reactrouter.com/v7/upgrading/future#futurev8_middleware
+  ⚠️  Future Flag Warning: Route module splitting behavior is changing in React Router v8.
+     You can use the `future.v8_splitRouteModules` flag to opt in early.
+     -> https://reactrouter.com/v7/upgrading/future#futurev8_splitroutemodules
+  ⚠️  Future Flag Warning: Vite Environment API usage is changing in React Router v8.
+     You can use the `future.v8_viteEnvironmentApi` flag to opt in early.
+     -> https://reactrouter.com/v7/upgrading/future#futurev8_viteenvironmentapi
+  ⚠️  Future Flag Warning: Request handling behavior is changing in React Router v8.
+     You can use the `future.v8_passThroughRequests` flag to opt in early.
+     -> https://reactrouter.com/v7/upgrading/future#futurev8_passthroughrequests
+  ⚠️  Future Flag Warning: Data request URL formats are changing in React Router v8.
+     You can use the `future.v8_trailingSlashAwareDataRequests` flag to opt in early.
+     -> https://reactrouter.com/v7/upgrading/future#futurev8_trailingslashawaredatarequests
+  ➜  Local:   http://localhost:55582/
+  ➜  Network: use --host to expose
+✅ Ready, watching for changes in your app │ Access scopes auto-granted: read_companies, read_customers, read_orders, write_companies, write_customers└ Using URL: https://kind-gardens-executives-frankfurt.trycloudflare.com[shopify-api/INFO] version 13.1.0, environment React Router
+2:14:53 PM [vite] (ssr) page reload app/routes/app.tsx
+2:15:07 PM [vite] (ssr) page reload app/routes/app.tsx
+2:15:14 PM [vite] (ssr) page reload app/routes/app.tsx
+2:15:21 PM [vite] (ssr) page reload app/routes/auth.$.tsx
+2:15:26 PM [vite] (ssr) page reload app/routes/auth.$.tsx
+2:15:45 PM [vite] (ssr) page reload app/routes/app.tsx
+2:15:51 PM [vite] (ssr) page reload app/routes/auth.$.tsx
+2:16:10 PM [vite] (ssr) page reload app/routes/app.tsx
+CATCH BLOCK HIT! Error: Response {
+  status: 410,
+  statusText: 'Gone',
+  headers: Headers {},
+  body: null,
+  bodyUsed: false,
+  ok: false,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers {
+    'content-type': 'text/html;charset=utf-8',
+    Link: '<https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com/shopifycloud/app-bridge.js>; rel="preload"; as="script", <https://cdn.shopify.com/shopifycloud/polaris.js>; rel="preload"; as="script"',
+    'Content-Security-Policy': 'frame-ancestors https://tax-exempt-dev.myshopify.com https://admin.shopify.com https://*.spin.dev https://admin.myshopify.io https://admin.shop.dev;'
+  },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers {
+    'content-type': 'text/html;charset=utf-8',
+    Link: '<https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com/shopifycloud/app-bridge.js>; rel="preload"; as="script", <https://cdn.shopify.com/shopifycloud/polaris.js>; rel="preload"; as="script"',
+    'Content-Security-Policy': 'frame-ancestors https://tax-exempt-dev.myshopify.com https://admin.shopify.com https://*.spin.dev https://admin.myshopify.io https://admin.shop.dev;'
+  },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+    at loadRouteData (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4019:19)
+    at queryImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3786:20)
+    at Object.query (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3634:18)
+    at handleDocumentRequest (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1428:18)
+    at requestHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1288:18)
+    at nodeHandler (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3889:30)
+    at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3896:17
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+    at loadRouteData (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4019:19)
+    at queryImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3786:20)
+    at Object.query (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3634:18)
+    at handleDocumentRequest (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1428:18)
+    at requestHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1288:18)
+    at nodeHandler (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3889:30)
+    at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3896:17
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+    at loadRouteData (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4019:19)
+    at queryImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3786:20)
+    at Object.query (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3634:18)
+    at handleDocumentRequest (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1428:18)
+    at requestHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1288:18)
+    at nodeHandler (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3889:30)
+    at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3896:17
+CATCH BLOCK HIT! Error: Response {
+  status: 200,
+  statusText: '',
+  headers: Headers {
+    'content-type': 'text/html;charset=utf-8',
+    Link: '<https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com/shopifycloud/app-bridge.js>; rel="preload"; as="script", <https://cdn.shopify.com/shopifycloud/polaris.js>; rel="preload"; as="script"',
+    'Content-Security-Policy': 'frame-ancestors https://tax-exempt-dev.myshopify.com https://admin.shopify.com https://*.spin.dev https://admin.myshopify.io https://admin.shop.dev;'
+  },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+Error: SHOPIFY_BOUNCE::
+      <script data-api-key="11ab8143e646040a98994029dda86aa8" src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+      
+    
+    at loader (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.tsx:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at callRouteHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:508:16)
+    at commonRoute.loader (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:643:19)
+    at file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5083:19
+    at callLoaderOrAction (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5135:16)
+    at async Promise.all (index 0)
+    at defaultDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4760:17)
+    at callDataStrategyImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:5027:17)
+    at callDataStrategy (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4043:19)
+    at loadRouteData (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:4019:19)
+    at queryImpl (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3786:20)
+    at Object.query (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-KS7C4IRE.mjs:3634:18)
+    at handleDocumentRequest (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1428:18)
+    at requestHandler (file:///Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/react-router/dist/development/chunk-IJF3QNGC.mjs:1288:18)
+    at nodeHandler (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3889:30)
+    at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/@react-router/dev/dist/vite.js:3896:17
+2:25:16 PM [vite] (client) hmr update /app/routes/app.tsx
+2:25:16 PM [vite] (client) hmr update /app/routes/app.tsx
+2:25:16 PM [vite] (client) hmr update /app/routes/app.tsx
+2:25:16 PM [vite] (ssr) page reload app/routes/app.tsx
+2:25:26 PM [vite] (ssr) page reload app/routes/auth.$.tsx
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+2:32:25 PM [vite] (client) hmr update /app/routes/app.tsx
+2:32:25 PM [vite] (client) hmr update /app/routes/app.tsx
+2:32:25 PM [vite] (client) hmr update /app/routes/app.tsx
+2:32:25 PM [vite] (ssr) page reload app/routes/app.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+2:33:04 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:33:04 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:33:04 PM [vite] Internal server error: Transform failed with 1 error:
+/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:43:0: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:43:0
+  
+  Unexpected "}"
+  41 |  
+  42 |    return { shop: session.shop };
+  43 |  };
+     |  ^
+  44 |  
+  45 |  export const action = async ({ request }: ActionFunctionArgs) => {
+  
+      at failureErrorWithLog (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:1467:15)
+      at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+      at responseCallbacks.<computed> (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:603:9)
+      at handleIncomingPacket (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:658:12)
+      at Socket.readFromStdout (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:581:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:568:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:519:3)
+      at Socket.Readable.push (node:internal/streams/readable:399:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+2:33:04 PM [vite] Internal server error: Transform failed with 1 error:
+/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:43:0: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:43:0
+  
+  Unexpected "}"
+  41 |  
+  42 |    return { shop: session.shop };
+  43 |  };
+     |  ^
+  44 |  
+  45 |  export const action = async ({ request }: ActionFunctionArgs) => {
+  
+      at failureErrorWithLog (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:1467:15)
+      at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+      at responseCallbacks.<computed> (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:603:9)
+      at handleIncomingPacket (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:658:12)
+      at Socket.readFromStdout (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:581:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:568:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:519:3)
+      at Socket.Readable.push (node:internal/streams/readable:399:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+2:33:09 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:33:09 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:33:09 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:33:09 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20502fd6ffea2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20502fe9885a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20503005a3fa2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING LOADER HIT: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  host: 'localhost:55582',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:33:57 PM [vite] (client) hmr update /app/routes/app.tsx
+2:33:57 PM [vite] (client) hmr update /app/routes/app.tsx
+2:33:57 PM [vite] (client) hmr update /app/routes/app.tsx
+2:33:57 PM [vite] (ssr) page reload app/routes/app.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205042aefbfa2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205042b2fd9a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205042c7a39a2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205042da896a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:34:03 PM [vite] (ssr) page reload app/routes/auth.$.tsx
+LOADER HIT URL: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING LOADER HIT: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  host: 'localhost:55582',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:34:29 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:29 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:29 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:29 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:34:29 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:34:29 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20504f268b2a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20504f45bd1a2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:34:42 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:42 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:42 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:42 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:34:42 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:34:42 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505400d21a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050540dd58a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505411d70a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505458d21a2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505459d24a2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:34:48 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:48 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:34:48 PM [vite] Internal server error: Transform failed with 1 error:
+/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:171:24: ERROR: "await" can only be used inside an "async" function
+  Plugin: vite:esbuild
+  File: /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:171:24
+  
+  "await" can only be used inside an "async" function
+  169|  
+  170|  function Bounce() {
+  171|    const { useEffect } = await import("react"); // wait, React is synchronous. I'll just change the import at the top.
+     |                          ^
+  172|    useEffect(() => {
+  173|      if (!document.querySelector('script[src="https://cdn.shopify.com/shopifycloud/app-bridge.js"]')) {
+  
+      at failureErrorWithLog (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:1467:15)
+      at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+      at responseCallbacks.<computed> (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:603:9)
+      at handleIncomingPacket (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:658:12)
+      at Socket.readFromStdout (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:581:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:568:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:519:3)
+      at Socket.Readable.push (node:internal/streams/readable:399:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+2:34:48 PM [vite] Internal server error: Transform failed with 1 error:
+/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:171:24: ERROR: "await" can only be used inside an "async" function
+  Plugin: vite:esbuild
+  File: /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/app/routes/app.onboarding.tsx:171:24
+  
+  "await" can only be used inside an "async" function
+  169|  
+  170|  function Bounce() {
+  171|    const { useEffect } = await import("react"); // wait, React is synchronous. I'll just change the import at the top.
+     |                          ^
+  172|    useEffect(() => {
+  173|      if (!document.querySelector('script[src="https://cdn.shopify.com/shopifycloud/app-bridge.js"]')) {
+  
+      at failureErrorWithLog (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:1467:15)
+      at /Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+      at responseCallbacks.<computed> (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:603:9)
+      at handleIncomingPacket (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:658:12)
+      at Socket.readFromStdout (/Users/rob/.gemini/antigravity/scratch/tax-exemption-manager/tax-exemption-manager/node_modules/vite/node_modules/esbuild/lib/main.js:581:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:568:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:519:3)
+      at Socket.Readable.push (node:internal/streams/readable:399:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+2:34:53 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:53 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:53 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:53 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:34:54 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:34:54 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205058858b5a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050589690aa2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505899918a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205058a4ddda2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205058a4ddea2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:34:59 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:59 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:59 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:34:59 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:34:59 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:34:59 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505a99ae1a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505aa7b03a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505aacb16a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505afd98aa2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505afd98ca2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:35:04 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:35:04 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:35:04 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:35:04 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:35:04 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:35:04 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505cadc7aa2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505cc0cdfa2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=3, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505cc9d0ea2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505cf1a9ea2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=1, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20505cf1a9fa2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING LOADER HIT: http://localhost:55582/app/onboarding?_data=routes%2Fapp.onboarding
+ONBOARDING HEADERS: {
+  accept: '*/*',
+  host: 'localhost:55582',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?dev-console=show&embedded=1&hmac=0c70889e03633cd5488e64fc26f6c6069aa31e6e7a6e820c472a8b317eb4d9e6&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODI3MSwibmJmIjoxNzg0OTE4MjExLCJpYXQiOjE3ODQ5MTgyMTEsImp0aSI6ImYzMzZjMjg1LTdjNGEtNGQ0My05ZDliLTNiMTg1ZTFhNzgwNSIsInNpZCI6IjMzMTE2NzMyLTNkZDctNDFhMy1iMzdmLTNkZTEyMGYxYTI2MCIsInNpZyI6IjRjMTUwZDY3ZTkyYmVmNjFkMGJhMTdhOTk3ZWMyM2UwNjBjZDhkMzQyNzc2YTQxYjFiZjIwMTMzNWE0NDJiNWEifQ.H8WpWvfrnBpaBhWBsUrgFt0a4odJCVzDCZaQHr9tNJA&locale=en&session=d67fb3087945f888fd93e8bddbde29d2d225eb9f20491a4738f72ea75537304f&shop=tax-exempt-dev.myshopify.com&timestamp=1784918211
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205086a1d83a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://admin.shopify.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'cross-site',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=3a1e279313dad4aee2221e8721b64573a59c1cdea7f77e764edde7624083f762&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODI3NSwibmJmIjoxNzg0OTE4MjE1LCJpYXQiOjE3ODQ5MTgyMTUsImp0aSI6IjMwYTFkNmRiLTI5MTctNDBkMC05MjdjLWE0MDcyYjlhNTFhNyIsInNpZCI6IjMzMTE2NzMyLTNkZDctNDFhMy1iMzdmLTNkZTEyMGYxYTI2MCIsInNpZyI6ImI2NmJjMzU1NGE4OTE3NDBlYWNiY2MxOGQwZTMxZDBiNzRlZmZkOGRmYjA0OTUwODI2OTllY2ZmNjk1NzllM2QifQ.-4f2EJCwc6qnSbFrx2TujZRfhhKTOzcQoD0Gyhk3xpk&locale=en&session=d67fb3087945f888fd93e8bddbde29d2d225eb9f20491a4738f72ea75537304f&shop=tax-exempt-dev.myshopify.com&timestamp=1784918215
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a20508814c3ea2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://admin.shopify.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'cross-site',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+2:39:14 PM [vite] (ssr) page reload app/routes/app._index.tsx
+2:39:22 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:39:22 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:39:22 PM [vite] (client) hmr update /app/routes/app.onboarding.tsx
+2:39:22 PM [vite] (ssr) page reload app/routes/app.onboarding.tsx
+2:39:22 PM [vite] (client) hmr invalidate /app/routes/app.onboarding.tsx Could not Fast Refresh (new export)
+2:39:22 PM [vite] (client) page reload app/routes/app.onboarding.tsx
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050c193c7ca2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050c199ca6a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050c1b983ca2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://localhost:55582/app?shop=tax-exempt-dev.myshopify.com&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODQ2MSwibmJmIjoxNzg0OTE4NDAxLCJpYXQiOjE3ODQ5MTg0MDEsImp0aSI6IjA5NzM5ZGZjLTZmMzgtNGMyMi1iNjMyLWY0OTA5NWU2OWM3ZiIsInNpZCI6ImYyZGNhMzZkLTRmNWYtNDM2Ny1iNTkwLTIzNzE2ODlkZjc1MyIsInNpZyI6IjUzYjgyNWM5NGFkMzE0YWJjMmZiNGVlZjA5YjUxZGMxNWYwMWQ1YWY5NzliZWMwNmE3MWFhMTI4Mzk1NDllNGQifQ.CIFL8vwEGh_rcmklTWYo6_gcsebqrKmM6SsF0KJcn0A&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODQ2MSwibmJmIjoxNzg0OTE4NDAxLCJpYXQiOjE3ODQ5MTg0MDEsImp0aSI6IjA5NzM5ZGZjLTZmMzgtNGMyMi1iNjMyLWY0OTA5NWU2OWM3ZiIsInNpZCI6ImYyZGNhMzZkLTRmNWYtNDM2Ny1iNTkwLTIzNzE2ODlkZjc1MyIsInNpZyI6IjUzYjgyNWM5NGFkMzE0YWJjMmZiNGVlZjA5YjUxZGMxNWYwMWQ1YWY5NzliZWMwNmE3MWFhMTI4Mzk1NDllNGQifQ.CIFL8vwEGh_rcmklTWYo6_gcsebqrKmM6SsF0KJcn0A&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODQ2MSwibmJmIjoxNzg0OTE4NDAxLCJpYXQiOjE3ODQ5MTg0MDEsImp0aSI6IjA5NzM5ZGZjLTZmMzgtNGMyMi1iNjMyLWY0OTA5NWU2OWM3ZiIsInNpZCI6ImYyZGNhMzZkLTRmNWYtNDM2Ny1iNTkwLTIzNzE2ODlkZjc1MyIsInNpZyI6IjUzYjgyNWM5NGFkMzE0YWJjMmZiNGVlZjA5YjUxZGMxNWYwMWQ1YWY5NzliZWMwNmE3MWFhMTI4Mzk1NDllNGQifQ.CIFL8vwEGh_rcmklTWYo6_gcsebqrKmM6SsF0KJcn0A&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2050d0e9db0a2c7-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://admin.shopify.com/',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'cross-site',
+  'sec-fetch-storage-access': 'active',
+  'sec-fetch-user': '?1',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+ONBOARDING AUTH SUCCESS! Shop: tax-exempt-dev.myshopify.com
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODQ2MSwibmJmIjoxNzg0OTE4NDAxLCJpYXQiOjE3ODQ5MTg0MDEsImp0aSI6IjA5NzM5ZGZjLTZmMzgtNGMyMi1iNjMyLWY0OTA5NWU2OWM3ZiIsInNpZCI6ImYyZGNhMzZkLTRmNWYtNDM2Ny1iNTkwLTIzNzE2ODlkZjc1MyIsInNpZyI6IjUzYjgyNWM5NGFkMzE0YWJjMmZiNGVlZjA5YjUxZGMxNWYwMWQ1YWY5NzliZWMwNmE3MWFhMTI4Mzk1NDllNGQifQ.CIFL8vwEGh_rcmklTWYo6_gcsebqrKmM6SsF0KJcn0A&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2051031ff88a2db-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a205164c1e7b4c37-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxODQ2MSwibmJmIjoxNzg0OTE4NDAxLCJpYXQiOjE3ODQ5MTg0MDEsImp0aSI6IjA5NzM5ZGZjLTZmMzgtNGMyMi1iNjMyLWY0OTA5NWU2OWM3ZiIsInNpZCI6ImYyZGNhMzZkLTRmNWYtNDM2Ny1iNTkwLTIzNzE2ODlkZjc1MyIsInNpZyI6IjUzYjgyNWM5NGFkMzE0YWJjMmZiNGVlZjA5YjUxZGMxNWYwMWQ1YWY5NzliZWMwNmE3MWFhMTI4Mzk1NDllNGQifQ.CIFL8vwEGh_rcmklTWYo6_gcsebqrKmM6SsF0KJcn0A&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+Matched leaf route at location "/auth/session-token?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401&shopify-reload=https%3A%2F%2Fkind-gardens-executives-frankfurt.trycloudflare.com%2Fapp%3Fembedded%3D1%26hmac%3D767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b%26host%3DYWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY%26locale%3Den%26session%3Dc7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22%26shop%3Dtax-exempt-dev.myshopify.com%26timestamp%3D1784918401" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] No valid session found | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Requesting offline access token | {shop: tax-exempt-dev.myshopify.com}
+config.future.expiringOfflineAccessTokens true
+[shopify-app/INFO] No valid session found | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Requesting offline access token | {shop: tax-exempt-dev.myshopify.com}
+config.future.expiringOfflineAccessTokens true
+[shopify-api/INFO] Creating new session | {shop: tax-exempt-dev.myshopify.com, isOnline: false}
+[shopify-api/INFO] Creating new session | {shop: tax-exempt-dev.myshopify.com, isOnline: false}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2051b939edf88df-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+Matched leaf route at location "/auth/session-token?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401&shopify-reload=https%3A%2F%2Fkind-gardens-executives-frankfurt.trycloudflare.com%2Fapp%3Fembedded%3D1%26hmac%3D767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b%26host%3DYWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY%26locale%3Den%26session%3Dc7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22%26shop%3Dtax-exempt-dev.myshopify.com%26timestamp%3D1784918401" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-CA,en-US;q=0.9,en;q=0.8',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2051bee0fe11801-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=f27daad23c21365331a7be553315d540b5efa802e77a6a1123a19914fe5345e0&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczpcL1wvdGF4LWV4ZW1wdC1kZXYubXlzaG9waWZ5LmNvbVwvYWRtaW4iLCJkZXN0IjoiaHR0cHM6XC9cL3RheC1leGVtcHQtZGV2Lm15c2hvcGlmeS5jb20iLCJhdWQiOiIxMWFiODE0M2U2NDYwNDBhOTg5OTQwMjlkZGE4NmFhOCIsInN1YiI6IjExMTMxNDA3NTY4MyIsImV4cCI6MTc4NDkxOTA3OSwibmJmIjoxNzg0OTE5MDE5LCJpYXQiOjE3ODQ5MTkwMTksImp0aSI6ImIzZDllY2IwLTliNzUtNDY2Ni1hMDQ1LWQ1Nzg1YmY2ZjFkNiIsInNpZCI6IjMzMTE2NzMyLTNkZDctNDFhMy1iMzdmLTNkZTEyMGYxYTI2MCIsInNpZyI6ImE0MjAxNGZhY2ViZjM5ODM1ZWRmMzMwNzkxYTYwMjcwZTRmMWEwZjczNTFhNmZhZDJjYWI3ZjVkM2JjOWY1MTQifQ.Z8LaMHKgnnsyQ8NLLE7ZZyDvMV34ZqGsfjLSjvuNQ-Q&locale=en&session=d67fb3087945f888fd93e8bddbde29d2d225eb9f20491a4738f72ea75537304f&shop=tax-exempt-dev.myshopify.com&timestamp=1784919019
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING LOADER HIT: http://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding
+ONBOARDING HEADERS: {
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'accept-encoding': 'gzip',
+  'accept-language': 'en-US,en;q=0.9',
+  'cache-control': 'max-age=0',
+  'cdn-loop': 'cloudflare; loops=1; subreqs=1',
+  'cf-connecting-ip': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'cf-ew-via': '15',
+  'cf-ipcountry': 'CA',
+  'cf-ray': 'a2051d394bb1a2d5-YUL',
+  'cf-visitor': '{"scheme":"https"}',
+  'cf-warp-tag-id': 'b466a1bf-10c0-48e5-a8b0-047b092a6614',
+  'cf-worker': 'trycloudflare.com',
+  connection: 'close',
+  host: 'kind-gardens-executives-frankfurt.trycloudflare.com',
+  priority: 'u=0, i',
+  referer: 'https://kind-gardens-executives-frankfurt.trycloudflare.com/app/onboarding',
+  'sec-ch-ua': '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'iframe',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-storage-access': 'active',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'x-forwarded-for': '2607:fea8:bcdf:8f70:5d0b:28df:e2fa:db84',
+  'x-forwarded-proto': 'https'
+}
+ONBOARDING AUTH FAILED! Response {
+  status: 200,
+  statusText: '',
+  headers: Headers { 'content-type': 'text/html;charset=utf-8' },
+  body: ReadableStream { locked: false, state: 'readable', supportsBYOB: true },
+  bodyUsed: false,
+  ok: true,
+  redirected: false,
+  type: 'default',
+  url: ''
+}
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+Matched leaf route at location "/auth/session-token?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401&shopify-reload=https%3A%2F%2Fkind-gardens-executives-frankfurt.trycloudflare.com%2Fapp%3Fembedded%3D1%26hmac%3D767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b%26host%3DYWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY%26locale%3Den%26session%3Dc7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22%26shop%3Dtax-exempt-dev.myshopify.com%26timestamp%3D1784918401" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.
+LOADER HIT URL: http://kind-gardens-executives-frankfurt.trycloudflare.com/app?embedded=1&hmac=767cd4951ab0e40bc3b533f7d9e7e2cba535bc0b566501423cb0bc5838d8828b&host=YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvdGF4LWV4ZW1wdC1kZXY&locale=en&session=c7d67f2542e2da709fe49f7740e776e308f6c6be2602533394112b7587e25c22&shop=tax-exempt-dev.myshopify.com&timestamp=1784918401
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating admin request | {shop: tax-exempt-dev.myshopify.com}
+[shopify-app/INFO] Authenticating app proxy request | {shop: tax-exempt-dev.myshopify.com}
+App config updated❌ Error└  Another developer (robbievarkey008@gmail.com) has taken ownership of this dev preview.╭─ error ──────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Another user (robbievarkey008@gmail.com) has taken ownership of this dev    │
+│  preview. Your preview is no longer active.                                  │
+│                                                                              │
+│  You can restart by running `shopify app dev` again.                         │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
