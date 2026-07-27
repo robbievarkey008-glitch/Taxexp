@@ -2,7 +2,7 @@
 
 client_id = "11ab8143e646040a98994029dda86aa8"
 name = "tax-exemption-manager"
-application_url = "https://example.com"
+application_url = "https://tax-exemption-manager-1021528646413.us-central1.run.app"
 embedded = true
 
 [access_scopes]
@@ -27,13 +27,16 @@ api_version = "2026-04"
 
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://tax-exemption-manager-1021528646413.us-central1.run.app/auth/callback",
+  "https://tax-exemption-manager-1021528646413.us-central1.run.app/auth/shopify/callback",
+  "https://tax-exemption-manager-1021528646413.us-central1.run.app/api/auth/callback"
+]
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
 
 [app_proxy]
-url = "https://example.com/api/proxy"
+url = "https://tax-exemption-manager-1021528646413.us-central1.run.app/api/proxy"
 subpath = "tax-exemptions"
 prefix = "apps"

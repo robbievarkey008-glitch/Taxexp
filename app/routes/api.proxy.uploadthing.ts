@@ -4,7 +4,7 @@ import { uploadRouter } from "../uploadthing.server";
 const handlers = createRouteHandler({
   router: uploadRouter,
   config: {
-    callbackUrl: process.env.SHOPIFY_APP_URL ? `${process.env.SHOPIFY_APP_URL}/api/uploadthing` : undefined,
+    token: process.env.UPLOADTHING_TOKEN,
   },
 });
 

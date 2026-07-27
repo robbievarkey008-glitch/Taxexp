@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
-import { useLoaderData, useSubmit, useNavigation } from "react-router";
+import { useLoaderData, useSubmit, useNavigation, useRouteError } from "react-router";
 import { authenticate } from "../shopify.server";
 import { getShopSettings, upsertShopSettings } from "../lib/firestore.server";
 import {

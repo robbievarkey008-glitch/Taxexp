@@ -2,8 +2,9 @@ import { useState, useCallback } from "react";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
 import { useLoaderData, useSubmit, useNavigation, useNavigate } from "react-router";
 import { authenticate } from "../shopify.server";
-import { getCertificate, updateCertificateStatus } from "../lib/firestore.server";
+import { getCertificate, updateCertificateStatus, getShopSettings } from "../lib/firestore.server";
 import { getFileViewUrl } from "../lib/storage.server";
+import { sendCustomerNotification } from "../lib/email.server";
 import {
   Page,
   Layout,
@@ -110,6 +111,64 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
 
       // 2. Update Firestore status
       await updateCertificateStatus(id, "APPROVED");
+      
+      const settings = await getShopSettings(shop);
+      if (settings?.customerNotificationsEnabled && cert.customerEmail && cert.customerEmail.includes("@")) {
+        await sendCustomerNotification(cert.customerEmail, shop, "APPROVED");
+      }
+
+      return { success: true };
+
+    } else if (intent === "REVOKE") {
+      // 1. Remove Shopify Exemption
+      if (cert.buyerType === "customer") {
+        const response = await admin.graphql(
+          `#graphql
+          mutation customerRemoveTaxExemptions($customerId: ID!, $taxExemptions: [TaxExemption!]!) {
+            customerRemoveTaxExemptions(customerId: $customerId, taxExemptions: $taxExemptions) {
+              userErrors { field message }
+            }
+          }`,
+          {
+            variables: {
+              customerId: cert.shopifyCustomerId,
+              taxExemptions: [cert.taxExemptionCode],
+            },
+          }
+        );
+        const json = await response.json();
+        if (json.data?.customerRemoveTaxExemptions?.userErrors?.length) {
+          throw new Error(json.data.customerRemoveTaxExemptions.userErrors[0].message);
+        }
+      } else if (cert.buyerType === "company_location" && cert.shopifyCompanyLocationId) {
+        const response = await admin.graphql(
+          `#graphql
+          mutation companyLocationRemoveTaxExemptions($companyLocationId: ID!, $taxExemptions: [TaxExemption!]!) {
+            companyLocationRemoveTaxExemptions(companyLocationId: $companyLocationId, taxExemptions: $taxExemptions) {
+              userErrors { field message code }
+            }
+          }`,
+          {
+            variables: {
+              companyLocationId: cert.shopifyCompanyLocationId,
+              taxExemptions: [cert.taxExemptionCode],
+            },
+          }
+        );
+        const json = await response.json();
+        if (json.data?.companyLocationRemoveTaxExemptions?.userErrors?.length) {
+          throw new Error(json.data.companyLocationRemoveTaxExemptions.userErrors[0].message);
+        }
+      }
+
+      // 2. Update Firestore status
+      await updateCertificateStatus(id, "REJECTED", { rejectionReason: "Exemption was manually revoked by admin." });
+      
+      const settings = await getShopSettings(shop);
+      if (settings?.customerNotificationsEnabled && cert.customerEmail && cert.customerEmail.includes("@")) {
+        await sendCustomerNotification(cert.customerEmail, shop, "REVOKED", "Exemption was manually revoked by admin.");
+      }
+
       return { success: true };
 
     } else if (intent === "REJECT") {
@@ -120,6 +179,12 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
       
       // Update Firestore status
       await updateCertificateStatus(id, "REJECTED", { rejectionReason: reason });
+      
+      const settings = await getShopSettings(shop);
+      if (settings?.customerNotificationsEnabled && cert.customerEmail && cert.customerEmail.includes("@")) {
+        await sendCustomerNotification(cert.customerEmail, shop, "REJECTED", reason);
+      }
+
       return { success: true };
     }
   } catch (err: any) {
@@ -144,6 +209,10 @@ export default function CertificateDetail() {
 
   const handleApprove = () => {
     submit({ intent: "APPROVE" }, { method: "post" });
+  };
+
+  const handleRevoke = () => {
+    submit({ intent: "REVOKE" }, { method: "post" });
   };
 
   const handleReject = () => {
@@ -177,6 +246,11 @@ export default function CertificateDetail() {
           onAction: handleApprove,
           loading: isSubmitting,
           disabled: isSubmitting,
+        } : cert.status === "REJECTED" ? {
+          content: "Approve Exemption",
+          onAction: handleApprove,
+          loading: isSubmitting,
+          disabled: isSubmitting,
         } : undefined
       }
       secondaryActions={
@@ -188,6 +262,14 @@ export default function CertificateDetail() {
             loading: isSubmitting,
             disabled: isSubmitting,
           },
+        ] : cert.status === "APPROVED" ? [
+          {
+            content: "Revoke Exemption",
+            destructive: true,
+            onAction: handleRevoke,
+            loading: isSubmitting,
+            disabled: isSubmitting,
+          }
         ] : undefined
       }
     >

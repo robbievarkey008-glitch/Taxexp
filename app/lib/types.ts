@@ -44,6 +44,11 @@ export interface ShopSettingsDoc {
   usesThirdPartyTaxService: boolean;     // merchant self-reports on onboarding
   thirdPartyTaxServiceName: string | null;
   geminiExtractionEnabled: boolean;      // defaults false — opt-in only
+  
+  // Notification Preferences
+  adminNotificationsEnabled: boolean;
+  adminNotificationEmail: string | null;
+  customerNotificationsEnabled: boolean;
 }
 
 // Document ID is shop domain

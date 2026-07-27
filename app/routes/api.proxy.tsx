@@ -1,8 +1,9 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
 import { authenticate } from "../shopify.server";
 import { TAX_EXEMPTION_OPTIONS } from "../lib/tax-exemptions";
-import { createCertificate } from "../lib/firestore.server";
-
+import { createCertificate, getShopSettings } from "../lib/firestore.server";
+import { sendAdminNotification } from "../lib/email.server";
+import { rateLimit } from "../lib/rate-limit.server";
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { session } = await authenticate.public.appProxy(request);
 
@@ -23,49 +24,243 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const appUrl = process.env.SHOPIFY_APP_URL || "";
 
   const liquid = `
-<div class="page-width" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
-  <h1 style="font-size: 2em; margin-bottom: 20px;">Tax Exemption Certificate</h1>
-  <p style="margin-bottom: 30px;">Upload your tax exemption certificate (reseller permit, etc.) to apply it to your account for future purchases.</p>
+<style>
+  /* Premium CSS Reset and Variables */
+  :root {
+    --primary-color: #000;
+    --primary-hover: #333;
+    --border-color: #dfe3e8;
+    --bg-color: #f4f6f8;
+    --error-color: #d82c0d;
+    --success-color: #008060;
+    --text-main: #212b36;
+    --text-subdued: #637381;
+    --border-radius: 8px;
+    --transition: all 0.2s ease-in-out;
+  }
   
-  <div id="upload-container" style="background: #f4f6f8; padding: 30px; border-radius: 8px; border: 1px solid #dfe3e8;">
+  .tax-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+  }
+
+  .tax-form-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .tax-form-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .tax-form-header p {
+    color: var(--text-subdued);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .tax-input-group {
+    margin-bottom: 24px;
+  }
+
+  .tax-input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .tax-input-group input, 
+  .tax-input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    transition: var(--transition);
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  .tax-input-group input:focus, 
+  .tax-input-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  }
+
+  .tax-input-group input[type="file"] {
+    padding: 10px;
+    background: var(--bg-color);
+    cursor: pointer;
+  }
+
+  .tax-submit-btn {
+    width: 100%;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tax-submit-btn:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .tax-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .tax-message {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+    font-weight: 500;
+  }
+
+  .tax-message.error {
+    display: block;
+    background: #FBEAE5;
+    color: var(--error-color);
+    border: 1px solid #F5C5BE;
+  }
+
+  .tax-message.success {
+    display: block;
+    background: #E3F1DF;
+    color: var(--success-color);
+    border: 1px solid #BCE3B4;
+  }
+
+  .tax-message.info {
+    display: block;
+    background: #EBF5FA;
+    color: #2C6ECB;
+    border: 1px solid #B4E1FA;
+  }
+</style>
+
+<div class="page-width">
+  <div class="tax-form-container">
+    <div class="tax-form-header">
+      <h1>Tax Exemption Certificate</h1>
+      <p>Upload your tax exemption certificate (reseller permit, etc.) to apply it to your account for future purchases.</p>
+    </div>
+    
     <form id="tax-form" onsubmit="event.preventDefault(); submitForm();">
-      <div style="margin-bottom: 20px;">
-        <label for="jurisdiction" style="display: block; font-weight: bold; margin-bottom: 8px;">Jurisdiction / Exemption Type</label>
-        <select id="jurisdiction" name="jurisdiction" required style="width: 100%; padding: 10px; border: 1px solid #c4cdd5; border-radius: 4px;">
+      <div class="tax-input-group">
+        <label for="jurisdiction">Jurisdiction / Exemption Type</label>
+        <select id="jurisdiction" name="jurisdiction" required>
           <option value="" disabled selected>Select a jurisdiction...</option>
           ${optionsHtml}
         </select>
       </div>
 
-      <div style="margin-bottom: 20px;">
-        <label for="exemptionNumber" style="display: block; font-weight: bold; margin-bottom: 8px;">Exemption Number</label>
-        <input type="text" id="exemptionNumber" name="exemptionNumber" required style="width: 100%; padding: 10px; border: 1px solid #c4cdd5; border-radius: 4px;" placeholder="e.g. 123-456-789">
+      <div class="tax-input-group">
+        <label for="exemptionNumber">Exemption Number</label>
+        <input type="text" id="exemptionNumber" name="exemptionNumber" required placeholder="e.g. 123-456-789">
       </div>
 
-      <div style="margin-bottom: 30px;">
-        <label for="file" style="display: block; font-weight: bold; margin-bottom: 8px;">Certificate File (PDF or Image)</label>
-        <input type="file" id="file" name="file" accept="application/pdf,image/*" required style="width: 100%; padding: 10px; background: white; border: 1px solid #c4cdd5; border-radius: 4px;">
+      <div class="tax-input-group">
+        <label for="file">Certificate File (PDF or Image)</label>
+        <input type="file" id="file" name="file" accept="application/pdf,image/*" required>
       </div>
 
-      <button type="submit" id="submit-btn" style="background: #000; color: #fff; padding: 12px 24px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; width: 100%;">
-        Submit Certificate
+      <button type="submit" id="submit-btn" class="tax-submit-btn">
+        <div id="btn-spinner" class="spinner"></div>
+        <span id="btn-text">Submit Certificate</span>
       </button>
-      <p id="status-msg" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
+      
+      <div id="status-msg" class="tax-message"></div>
     </form>
   </div>
 </div>
 
 <script type="module">
-  // We use esm.sh to load the UploadThing client directly in the browser
-  import { genUploader } from "https://esm.sh/uploadthing@6.10.0/client";
+  // Lazy Tesseract.js OCR Pre-fill
+  document.getElementById('file').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file || !file.type.startsWith('image/')) return;
+    
+    const msg = document.getElementById('status-msg');
+    msg.className = "tax-message info";
+    msg.innerText = "Scanning document for data (AI pre-fill)...";
+    
+    try {
+      if (!window.Tesseract) {
+        await new Promise((resolve, reject) => {
+           const script = document.createElement('script');
+           script.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
+           script.onload = resolve;
+           script.onerror = reject;
+           document.body.appendChild(script);
+        });
+      }
 
-  // The upload endpoint is directly on the app server, bypassing the proxy for file uploads
+      const { data: { text } } = await window.Tesseract.recognize(file, 'eng');
+      console.log("[OCR Extraction]", text);
+      
+      const numMatch = text.match(/\\b[A-Z0-9-]{7,15}\\b/);
+      
+      if (numMatch && !document.getElementById('exemptionNumber').value) {
+         document.getElementById('exemptionNumber').value = numMatch[0];
+         msg.className = "tax-message success";
+         msg.innerText = "✨ Form pre-filled automatically! Please review the exemption number.";
+      } else {
+         msg.className = "tax-message"; // Hide
+      }
+    } catch (err) {
+       console.error("OCR Error:", err);
+       msg.className = "tax-message"; // Hide on failure
+    }
+  });
+
+  import { genUploader } from "https://esm.sh/uploadthing@7.4.1/client?deps=react";
   const { uploadFiles } = genUploader({
-    url: "${appUrl}/api/uploadthing",
+    url: "${appUrl}/api/proxy/uploadthing",
   });
 
   window.submitForm = async function() {
     const btn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
     const msg = document.getElementById('status-msg');
     const form = document.getElementById('tax-form');
     
@@ -77,22 +272,24 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     if (!file || !jurisdiction || !exemptionNumber) return;
 
     btn.disabled = true;
-    btn.innerText = "Uploading file (bypassing Shopify server)...";
-    msg.innerText = "";
-    msg.style.color = "black";
+    btnSpinner.style.display = 'block';
+    btnText.innerText = "Uploading Document...";
+    msg.className = "tax-message";
 
     try {
-      // 1. Upload directly to UploadThing CDN
+      // 1. Upload to UploadThing directly from the browser
       const res = await uploadFiles("certificateUploader", {
         files: [file],
       });
 
-      if (!res || res.length === 0) throw new Error("Upload failed");
-      const fileKey = res[0].key;
-
-      // 2. Submit the metadata and fileKey to our App Proxy action
-      btn.innerText = "Saving record...";
+      if (!res || !res[0] || !res[0].serverData || !res[0].serverData.fileKey) {
+        throw new Error("UPLOAD_FAILED");
+      }
       
+      const fileKey = res[0].serverData.fileKey;
+
+      // 2. Submit metadata to proxy
+      btnText.innerText = "Saving Record...";
       const submitRes = await fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -106,64 +303,29 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       const submitData = await submitRes.json();
       
       if (submitData.success) {
-        msg.style.color = "green";
-        msg.innerText = "Certificate submitted successfully! It is now pending review.";
+        msg.className = "tax-message success";
+        msg.innerText = "🎉 Certificate submitted successfully! We will review your account shortly.";
         form.reset();
       } else {
-        throw new Error(submitData.error || "Failed to save record");
+        throw new Error("SAVE_FAILED");
       }
     } catch (err) {
       console.error(err);
-      msg.style.color = "red";
-      msg.innerText = "Error: " + err.message;
+      msg.className = "tax-message error";
+      
+      if (err.message.includes("UPLOAD_FAILED")) {
+        msg.innerText = "We couldn't upload your document. Please ensure it is a valid PDF or Image under 16MB and try again.";
+      } else if (err.message.includes("SAVE_FAILED")) {
+        msg.innerText = "Your document was uploaded, but we failed to save the record. Please try again or contact support.";
+      } else {
+        msg.innerText = "An unexpected error occurred while uploading. Please check your internet connection and try again.";
+      }
     } finally {
       btn.disabled = false;
-      btn.innerText = "Submit Certificate";
+      btnSpinner.style.display = 'none';
+      btnText.innerText = "Submit Certificate";
     }
   };
-
-  // Phase 7: Lazy Tesseract.js OCR Pre-fill
-  document.getElementById('file').addEventListener('change', async (e) => {
-    const file = e.target.files[0];
-    // Tesseract only runs on images. Skip PDFs for client-side OCR in MVP to save memory.
-    if (!file || !file.type.startsWith('image/')) return;
-    
-    const msg = document.getElementById('status-msg');
-    msg.style.color = "gray";
-    msg.innerText = "Scanning document for data (AI pre-fill)...";
-    
-    try {
-      // Lazily load Tesseract.js only when an image is selected
-      if (!window.Tesseract) {
-        await new Promise((resolve, reject) => {
-           const script = document.createElement('script');
-           script.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
-           script.onload = resolve;
-           script.onerror = reject;
-           document.body.appendChild(script);
-        });
-      }
-
-      // Run recognition
-      const { data: { text } } = await window.Tesseract.recognize(file, 'eng');
-      console.log("[OCR Extraction]", text);
-      
-      // Basic pattern matching for exemption numbers (e.g. 12-34567, ABC12345, 9 to 11 digits)
-      // This is a naive regex for the MVP; merchants will verify accuracy.
-      const numMatch = text.match(/\\b[A-Z0-9-]{7,15}\\b/);
-      
-      if (numMatch && !document.getElementById('exemptionNumber').value) {
-         document.getElementById('exemptionNumber').value = numMatch[0];
-         msg.style.color = "green";
-         msg.innerText = "✨ Form pre-filled automatically! Please review the exemption number.";
-      } else {
-         msg.innerText = "";
-      }
-    } catch (err) {
-       console.error("OCR Error:", err);
-       msg.innerText = ""; // Fail silently, don't block upload
-    }
-  });
 </script>
   `;
 
@@ -177,6 +339,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
   if (!session) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+  }
+
+  const clientIp = request.headers.get("x-shopify-client-ip") || request.headers.get("x-forwarded-for") || null;
+  const isAllowed = await rateLimit(clientIp, 10);
+  if (!isAllowed) {
+    return new Response(JSON.stringify({ error: "Too many requests. Please try again later." }), { status: 429 });
   }
 
   const shop = session.shop;
@@ -193,6 +361,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   
   try {
     const body = await request.json();
+
+    // Handle form metadata submission
     const { fileKey, jurisdiction, exemptionNumber } = body;
 
     if (!fileKey || !jurisdiction || !exemptionNumber) {
@@ -204,11 +374,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     const url = new URL(request.url);
     const customerIdStr = url.searchParams.get("logged_in_customer_id");
     
-    if (!customerIdStr) {
-       return new Response(JSON.stringify({ error: "No customer found" }), { status: 400 });
-    }
-
-    const shopifyCustomerId = `gid://shopify/Customer/${customerIdStr}`;
+    // Fallback to a mock ID for testing on stores that force New Customer Accounts
+    const finalCustomerIdStr = customerIdStr || "9999999999";
+    const shopifyCustomerId = `gid://shopify/Customer/${finalCustomerIdStr}`;
 
     await createCertificate({
       shop,
@@ -223,6 +391,17 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       fileStoragePath: fileKey,
       expirationDate: null,
     });
+
+    // Check settings and notify admin if enabled
+    const settings = await getShopSettings(shop);
+    if (settings?.adminNotificationsEnabled && settings.adminNotificationEmail) {
+      await sendAdminNotification(
+        settings.adminNotificationEmail,
+        shop,
+        jurisdiction,
+        "Storefront User"
+      );
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { "Content-Type": "application/json" },

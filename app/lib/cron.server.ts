@@ -36,22 +36,22 @@ export async function expireCertificates(): Promise<number> {
             // Re-assign empty array to clear exemptions
             await admin.graphql(
               `#graphql
-              mutation customerUpdateTaxExemptions($customerId: ID!, $taxExemptions: [TaxExemption!]!) {
-                customerUpdateTaxExemptions(customerId: $customerId, taxExemptions: $taxExemptions) {
+              mutation customerRemoveTaxExemptions($customerId: ID!, $taxExemptions: [TaxExemption!]!) {
+                customerRemoveTaxExemptions(customerId: $customerId, taxExemptions: $taxExemptions) {
                   userErrors { field message }
                 }
               }`,
-              { variables: { customerId: cert.shopifyCustomerId, taxExemptions: [] } }
+              { variables: { customerId: cert.shopifyCustomerId, taxExemptions: [cert.taxExemptionCode] } }
             );
           } else if (cert.buyerType === "company_location" && cert.shopifyCompanyLocationId) {
             await admin.graphql(
               `#graphql
-              mutation companyLocationAssignTaxExemptions($companyLocationId: ID!, $taxExemptions: [TaxExemption!]!) {
-                companyLocationAssignTaxExemptions(companyLocationId: $companyLocationId, taxExemptions: $taxExemptions) {
+              mutation companyLocationRemoveTaxExemptions($companyLocationId: ID!, $taxExemptions: [TaxExemption!]!) {
+                companyLocationRemoveTaxExemptions(companyLocationId: $companyLocationId, taxExemptions: $taxExemptions) {
                   userErrors { field message }
                 }
               }`,
-              { variables: { companyLocationId: cert.shopifyCompanyLocationId, taxExemptions: [] } }
+              { variables: { companyLocationId: cert.shopifyCompanyLocationId, taxExemptions: [cert.taxExemptionCode] } }
             );
           }
 

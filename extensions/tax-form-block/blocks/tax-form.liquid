@@ -1,0 +1,462 @@
+
+{% if customer %}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+
+    /* Premium CSS Reset and Variables */
+    :root {
+      --primary-color: {{ block.settings.primary_color }};
+      --primary-hover: #222;
+      --border-color: rgba(223, 227, 232, 0.9);
+      --bg-color: {{ block.settings.bg_color }};
+      --error-color: #d82c0d;
+      --success-color: #008060;
+      --text-main: #1a1a1a;
+      --text-subdued: #555;
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .tax-form-container {
+      max-width: 540px;
+      margin: 60px auto;
+      padding: 40px;
+      background: var(--bg-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      border: 1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      animation: formFadeIn 0.6s ease-out forwards;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    @keyframes formFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tax-form-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .tax-form-header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #111 0%, #555 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tax-form-header p {
+      color: var(--text-subdued);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .tax-input-group {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .tax-input-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .tax-input-group input, 
+    .tax-input-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'Outfit', sans-serif;
+      transition: var(--transition);
+      box-sizing: border-box;
+      background: #fafafa;
+      color: var(--text-main);
+    }
+
+    .tax-input-group input:hover, 
+    .tax-input-group select:hover {
+      border-color: #bbb;
+    }
+
+    .tax-input-group input:focus, 
+    .tax-input-group select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(0,0,0,0.06);
+    }
+
+    .tax-input-group input[type="file"] {
+      padding: 12px;
+      background: #f8f9fa;
+      cursor: pointer;
+      border: 2px dashed var(--border-color);
+    }
+    
+    .tax-input-group input[type="file"]:hover {
+      border-color: var(--primary-color);
+      background: #fff;
+    }
+
+    .tax-submit-btn {
+      width: 100%;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tax-submit-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .tax-submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .tax-submit-btn:hover:not(:disabled)::after {
+      left: 100%;
+    }
+
+    .tax-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: translateY(0);
+    }
+
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .tax-message {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.5;
+      display: none;
+      font-weight: 500;
+    }
+
+    .tax-message.error {
+      display: block;
+      background: #FBEAE5;
+      color: var(--error-color);
+      border: 1px solid #F5C5BE;
+    }
+
+    .tax-message.success {
+      display: block;
+      background: #E3F1DF;
+      color: var(--success-color);
+      border: 1px solid #BCE3B4;
+    }
+
+    .tax-message.info {
+      display: block;
+      background: #EBF5FA;
+      color: #2C6ECB;
+      border: 1px solid #B4E1FA;
+    }
+  </style>
+
+  <div class="page-width">
+    <div class="tax-form-container">
+      <div class="tax-form-header">
+        <h1>{{ block.settings.title }}</h1>
+        <p>{{ block.settings.subtitle }}</p>
+      </div>
+      
+      <form id="tax-form" onsubmit="event.preventDefault(); submitForm();">
+        <div class="tax-input-group">
+          <label for="jurisdiction">Jurisdiction / Exemption Type</label>
+          <select id="jurisdiction" name="jurisdiction" required>
+            <option value="" disabled selected>Select a jurisdiction...</option>
+          <option value="CA_STATUS_CARD_EXEMPTION">Canada — Status Card</option>
+          <option value="CA_BC_RESELLER_EXEMPTION">British Columbia — Reseller</option>
+          <option value="CA_MB_RESELLER_EXEMPTION">Manitoba — Reseller</option>
+          <option value="CA_SK_RESELLER_EXEMPTION">Saskatchewan — Reseller</option>
+          <option value="CA_SK_VPT_RESELLER_EXEMPTION">Saskatchewan — VPT Reseller</option>
+          <option value="CA_NL_VPT_RESELLER_EXEMPTION">Newfoundland — VPT Reseller</option>
+          <option value="CA_DIPLOMAT_EXEMPTION">Canada — Diplomat</option>
+          <option value="CA_BC_COMMERCIAL_FISHERY_EXEMPTION">British Columbia — Commercial Fishery</option>
+          <option value="CA_MB_COMMERCIAL_FISHERY_EXEMPTION">Manitoba — Commercial Fishery</option>
+          <option value="CA_NS_COMMERCIAL_FISHERY_EXEMPTION">Nova Scotia — Commercial Fishery</option>
+          <option value="CA_PE_COMMERCIAL_FISHERY_EXEMPTION">Prince Edward Island — Commercial Fishery</option>
+          <option value="CA_SK_COMMERCIAL_FISHERY_EXEMPTION">Saskatchewan — Commercial Fishery</option>
+          <option value="CA_BC_PRODUCTION_AND_MACHINERY_EXEMPTION">British Columbia — Production & Machinery</option>
+          <option value="CA_SK_PRODUCTION_AND_MACHINERY_EXEMPTION">Saskatchewan — Production & Machinery</option>
+          <option value="CA_BC_SUB_CONTRACTOR_EXEMPTION">British Columbia — Sub-Contractor</option>
+          <option value="CA_SK_SUB_CONTRACTOR_EXEMPTION">Saskatchewan — Sub-Contractor</option>
+          <option value="CA_BC_CONTRACTOR_EXEMPTION">British Columbia — Contractor</option>
+          <option value="CA_SK_CONTRACTOR_EXEMPTION">Saskatchewan — Contractor</option>
+          <option value="CA_ON_PURCHASE_EXEMPTION">Ontario — Purchase</option>
+          <option value="CA_MB_FARMER_EXEMPTION">Manitoba — Farmer</option>
+          <option value="CA_NS_FARMER_EXEMPTION">Nova Scotia — Farmer</option>
+          <option value="CA_SK_FARMER_EXEMPTION">Saskatchewan — Farmer</option>
+          <option value="EU_REVERSE_CHARGE_EXEMPTION_RULE">EU — Reverse Charge</option>
+          <option value="US_AL_RESELLER_EXEMPTION">Alabama — Reseller</option>
+          <option value="US_AK_RESELLER_EXEMPTION">Alaska — Reseller</option>
+          <option value="US_AZ_RESELLER_EXEMPTION">Arizona — Reseller</option>
+          <option value="US_AR_RESELLER_EXEMPTION">Arkansas — Reseller</option>
+          <option value="US_CA_RESELLER_EXEMPTION">California — Reseller</option>
+          <option value="US_CO_RESELLER_EXEMPTION">Colorado — Reseller</option>
+          <option value="US_CT_RESELLER_EXEMPTION">Connecticut — Reseller</option>
+          <option value="US_DE_RESELLER_EXEMPTION">Delaware — Reseller</option>
+          <option value="US_FL_RESELLER_EXEMPTION">Florida — Reseller</option>
+          <option value="US_GA_RESELLER_EXEMPTION">Georgia — Reseller</option>
+          <option value="US_HI_RESELLER_EXEMPTION">Hawaii — Reseller</option>
+          <option value="US_ID_RESELLER_EXEMPTION">Idaho — Reseller</option>
+          <option value="US_IL_RESELLER_EXEMPTION">Illinois — Reseller</option>
+          <option value="US_IN_RESELLER_EXEMPTION">Indiana — Reseller</option>
+          <option value="US_IA_RESELLER_EXEMPTION">Iowa — Reseller</option>
+          <option value="US_KS_RESELLER_EXEMPTION">Kansas — Reseller</option>
+          <option value="US_KY_RESELLER_EXEMPTION">Kentucky — Reseller</option>
+          <option value="US_LA_RESELLER_EXEMPTION">Louisiana — Reseller</option>
+          <option value="US_ME_RESELLER_EXEMPTION">Maine — Reseller</option>
+          <option value="US_MD_RESELLER_EXEMPTION">Maryland — Reseller</option>
+          <option value="US_MA_RESELLER_EXEMPTION">Massachusetts — Reseller</option>
+          <option value="US_MI_RESELLER_EXEMPTION">Michigan — Reseller</option>
+          <option value="US_MN_RESELLER_EXEMPTION">Minnesota — Reseller</option>
+          <option value="US_MS_RESELLER_EXEMPTION">Mississippi — Reseller</option>
+          <option value="US_MO_RESELLER_EXEMPTION">Missouri — Reseller</option>
+          <option value="US_MT_RESELLER_EXEMPTION">Montana — Reseller</option>
+          <option value="US_NE_RESELLER_EXEMPTION">Nebraska — Reseller</option>
+          <option value="US_NV_RESELLER_EXEMPTION">Nevada — Reseller</option>
+          <option value="US_NH_RESELLER_EXEMPTION">New Hampshire — Reseller</option>
+          <option value="US_NJ_RESELLER_EXEMPTION">New Jersey — Reseller</option>
+          <option value="US_NM_RESELLER_EXEMPTION">New Mexico — Reseller</option>
+          <option value="US_NY_RESELLER_EXEMPTION">New York — Reseller</option>
+          <option value="US_NC_RESELLER_EXEMPTION">North Carolina — Reseller</option>
+          <option value="US_ND_RESELLER_EXEMPTION">North Dakota — Reseller</option>
+          <option value="US_OH_RESELLER_EXEMPTION">Ohio — Reseller</option>
+          <option value="US_OK_RESELLER_EXEMPTION">Oklahoma — Reseller</option>
+          <option value="US_OR_RESELLER_EXEMPTION">Oregon — Reseller</option>
+          <option value="US_PA_RESELLER_EXEMPTION">Pennsylvania — Reseller</option>
+          <option value="US_RI_RESELLER_EXEMPTION">Rhode Island — Reseller</option>
+          <option value="US_SC_RESELLER_EXEMPTION">South Carolina — Reseller</option>
+          <option value="US_SD_RESELLER_EXEMPTION">South Dakota — Reseller</option>
+          <option value="US_TN_RESELLER_EXEMPTION">Tennessee — Reseller</option>
+          <option value="US_TX_RESELLER_EXEMPTION">Texas — Reseller</option>
+          <option value="US_UT_RESELLER_EXEMPTION">Utah — Reseller</option>
+          <option value="US_VT_RESELLER_EXEMPTION">Vermont — Reseller</option>
+          <option value="US_VA_RESELLER_EXEMPTION">Virginia — Reseller</option>
+          <option value="US_WA_RESELLER_EXEMPTION">Washington — Reseller</option>
+          <option value="US_WV_RESELLER_EXEMPTION">West Virginia — Reseller</option>
+          <option value="US_WI_RESELLER_EXEMPTION">Wisconsin — Reseller</option>
+          <option value="US_WY_RESELLER_EXEMPTION">Wyoming — Reseller</option>
+          <option value="US_DC_RESELLER_EXEMPTION">Washington D.C. — Reseller</option>
+          </select>
+        </div>
+
+        <div class="tax-input-group">
+          <label for="exemptionNumber">Exemption Number</label>
+          <input type="text" id="exemptionNumber" name="exemptionNumber" required placeholder="e.g. 123-456-789">
+        </div>
+
+        <div class="tax-input-group">
+          <label for="file">Certificate File (PDF or Image)</label>
+          <input type="file" id="file" name="file" accept="application/pdf,image/*" required>
+        </div>
+
+        <button type="submit" id="submit-btn" class="tax-submit-btn">
+          <div id="btn-spinner" class="spinner"></div>
+          <span id="btn-text">Submit Certificate</span>
+        </button>
+        
+        <div id="status-msg" class="tax-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module">
+    import { genUploader } from "https://esm.sh/uploadthing@7.7.4/client?v=4";
+
+    const { uploadFiles } = genUploader({
+      url: "/apps/tax-exemptions/uploadthing",
+    });
+
+    window.submitForm = async function() {
+      const btn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnSpinner = document.getElementById('btn-spinner');
+      const msg = document.getElementById('status-msg');
+      const form = document.getElementById('tax-form');
+      
+      const fileInput = document.getElementById('file');
+      const file = fileInput.files[0];
+      const jurisdiction = document.getElementById('jurisdiction').value;
+      const exemptionNumber = document.getElementById('exemptionNumber').value;
+
+      if (!file || !jurisdiction || !exemptionNumber) return;
+
+      btn.disabled = true;
+      btnSpinner.style.display = 'block';
+      btnText.innerText = "Uploading Document...";
+      msg.className = "tax-message"; 
+
+      try {
+        const res = await uploadFiles("certificateUploader", {
+          files: [file],
+        });
+
+        if (!res || res.length === 0) throw new Error("UPLOAD_FAILED");
+        const fileKey = res[0].key;
+
+        btnText.innerText = "Saving Record...";
+        
+        // Include logged_in_customer_id explicitly since App Blocks don't automatically append it like App Proxies
+        const submitRes = await fetch("/apps/tax-exemptions?logged_in_customer_id={{ customer.id }}", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileKey,
+            jurisdiction,
+            exemptionNumber
+          })
+        });
+
+        const submitData = await submitRes.json();
+        
+        if (submitData.success) {
+          msg.className = "tax-message success";
+          msg.innerText = "🎉 Certificate submitted successfully! We will review your account shortly.";
+          form.reset();
+        } else {
+          throw new Error("SAVE_FAILED");
+        }
+      } catch (err) {
+        console.error(err);
+        msg.className = "tax-message error";
+        
+        if (err.message.includes("UPLOAD_FAILED") || err.message.includes("Invalid input")) {
+          msg.innerText = "We couldn't upload your document. Please ensure it is a valid PDF or Image under 16MB and try again.";
+        } else if (err.message.includes("SAVE_FAILED")) {
+          msg.innerText = "Your document was uploaded, but we failed to save the record. Please try again or contact support.";
+        } else {
+          msg.innerText = "An unexpected error occurred while uploading. Please check your internet connection and try again.";
+        }
+      } finally {
+        btn.disabled = false;
+        btnSpinner.style.display = 'none';
+        btnText.innerText = "Submit Certificate";
+      }
+    };
+
+    document.getElementById('file').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+      
+      const msg = document.getElementById('status-msg');
+      msg.className = "tax-message info";
+      msg.innerText = "Scanning document for data (AI pre-fill)...";
+      
+      try {
+        if (!window.Tesseract) {
+          await new Promise((resolve, reject) => {
+             const script = document.createElement('script');
+             script.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
+             script.onload = resolve;
+             script.onerror = reject;
+             document.body.appendChild(script);
+          });
+        }
+
+        const { data: { text } } = await window.Tesseract.recognize(file, 'eng');
+        const numMatch = text.match(/\b[A-Z0-9-]{7,15}\b/);
+        
+        if (numMatch && !document.getElementById('exemptionNumber').value) {
+           document.getElementById('exemptionNumber').value = numMatch[0];
+           msg.className = "tax-message success";
+           msg.innerText = "✨ Form pre-filled automatically! Please review the exemption number.";
+        } else {
+           msg.className = "tax-message"; 
+        }
+      } catch (err) {
+         console.error("OCR Error:", err);
+         msg.className = "tax-message"; 
+      }
+    });
+  </script>
+{% else %}
+  <div class="page-width" style="text-align: center; padding: 40px; background: #fff; margin: 20px auto; border-radius: 8px;">
+    <h2>Tax Exemption Manager</h2>
+    <p>Please <a href="{{ routes.account_login_url }}">log in</a> to your account to upload a tax exemption certificate.</p>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Tax Exemption Form",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Form Title",
+      "default": "Tax Exemption Certificate"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Form Subtitle",
+      "default": "Upload your tax exemption certificate (reseller permit, etc.) to apply it to your account for future purchases."
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary Button Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Container Background Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

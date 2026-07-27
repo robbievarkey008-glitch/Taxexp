@@ -170,6 +170,9 @@ export async function initShopSettings(
         usesThirdPartyTaxService: false,
         thirdPartyTaxServiceName: null,
         geminiExtractionEnabled: false,
+        adminNotificationsEnabled: false,
+        adminNotificationEmail: null,
+        customerNotificationsEnabled: false,
       },
       { merge: true }
     );
