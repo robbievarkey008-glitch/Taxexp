@@ -66,8 +66,8 @@ export default function Onboarding() {
   };
 
   return (
-    <Page title="Welcome to Tax Exemption Manager">
-      <TitleBar title="Welcome to Tax Exemption Manager" />
+    <Page title="Welcome to Exemptify">
+      <TitleBar title="Welcome to Exemptify" />
       <Layout>
         <Layout.Section>
           <Card>

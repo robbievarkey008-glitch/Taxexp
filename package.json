@@ -1,5 +1,5 @@
 {
-  "name": "tax-exemption-manager",
+  "name": "exemptify-tax-exemptions",
   "private": true,
   "scripts": {
     "build": "react-router build",

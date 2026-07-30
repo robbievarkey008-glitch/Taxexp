@@ -21,7 +21,7 @@ export async function sendAdminNotification(
           <li><strong>Customer:</strong> ${customerName}</li>
           <li><strong>Jurisdiction:</strong> ${jurisdiction}</li>
         </ul>
-        <p>Log in to your Shopify Admin and open the Tax Exemption Manager app to review it.</p>
+        <p>Log in to your Shopify Admin and open the Exemptify app to review it.</p>
       `,
     });
   } catch (error) {

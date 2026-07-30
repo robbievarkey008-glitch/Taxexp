@@ -3,8 +3,11 @@ import {
   ApiVersion,
   AppDistribution,
   shopifyApp,
+  BillingInterval,
 } from "@shopify/shopify-app-react-router/server";
 import { FirestoreSessionStorage } from "./lib/session-storage.server";
+
+export const PREMIUM_PLAN = 'Premium Plan' as const;
 
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
@@ -18,6 +21,16 @@ const shopify = shopifyApp({
   authPathPrefix: "/auth",
   sessionStorage: new FirestoreSessionStorage(),
   distribution: AppDistribution.AppStore,
+  billing: {
+    [PREMIUM_PLAN]: {
+      lineItems: [{
+        amount: 14.99,
+        currencyCode: 'USD',
+        interval: BillingInterval.Every30Days,
+      }],
+      trialDays: 7,
+    },
+  },
   future: {
     expiringOfflineAccessTokens: true,
   },

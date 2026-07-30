@@ -38,3 +38,5 @@ delete_mock.ts
 curl_output*.txt
 
 .github/
+.vercel
+.env*

@@ -4,7 +4,7 @@ import { Outlet, useLoaderData, useRouteError, isRouteErrorResponse } from "reac
 import { boundary } from "@shopify/shopify-app-react-router/server";
 import { AppProvider } from "@shopify/shopify-app-react-router/react";
 
-import { authenticate } from "../shopify.server";
+import { authenticate, PREMIUM_PLAN } from "../shopify.server";
 import { AppProvider as PolarisAppProvider } from "@shopify/polaris";
 import enTranslations from "@shopify/polaris/locales/en.json";
 import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
@@ -13,7 +13,10 @@ export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   console.log("LOADER HIT URL:", request.url);
-  await authenticate.admin(request);
+  const { billing } = await authenticate.admin(request);
+  
+  // Managed Pricing is enabled in the Partner Dashboard, so we do not use the Billing API here.
+
   // eslint-disable-next-line no-undef
   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
 };

@@ -155,6 +155,9 @@ export default function Dashboard() {
                 image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
               >
                 <p>When customers upload tax exemption certificates, they will appear here for your review.</p>
+                <p style={{ marginTop: "10px" }}>
+                  <strong>To get started:</strong> Add the "Tax Exemption Form" block to your Customer Account page in the Shopify Theme Editor.
+                </p>
               </EmptyState>
             ) : (
               <IndexTable

@@ -1,19 +1,19 @@
 
 {% if customer %}
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     /* Premium CSS Reset and Variables */
     :root {
-      --primary-color: {{ block.settings.primary_color }};
-      --primary-hover: #222;
+      --primary-color: {{ block.settings.primary_color | default: '#0A2540' }};
+      --primary-hover: {{ block.settings.primary_color | color_lighten: 10 | default: '#11355A' }};
       --border-color: rgba(223, 227, 232, 0.9);
-      --bg-color: {{ block.settings.bg_color }};
+      --bg-color: {{ block.settings.bg_color | default: '#ffffff' }};
       --error-color: #d82c0d;
       --success-color: #008060;
       --text-main: #1a1a1a;
       --text-subdued: #555;
-      --border-radius: 12px;
+      --border-radius: 16px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
@@ -23,10 +23,11 @@
       padding: 40px;
       background: var(--bg-color);
       border-radius: var(--border-radius);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
-      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      box-shadow: 0 20px 40px -10px rgba(0, 179, 255, 0.2), 0 1px 3px rgba(0,0,0,0.05);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
-      border: 1px solid rgba(255,255,255,0.6);
+      border: 1px solid rgba(0, 179, 255, 0.15);
+      border-top: 2px solid rgba(255,255,255,0.8);
       backdrop-filter: blur(10px);
       animation: formFadeIn 0.6s ease-out forwards;
       opacity: 0;
@@ -44,12 +45,10 @@
 
     .tax-form-header h1 {
       font-size: 28px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #111 0%, #555 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--primary-color);
     }
 
     .tax-form-header p {
@@ -65,24 +64,38 @@
 
     .tax-input-group label {
       display: block;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 8px;
-      font-size: 14px;
+      font-size: 13px;
       color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .tax-input-group input, 
     .tax-input-group select {
       width: 100%;
       padding: 14px 18px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
       font-size: 15px;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', sans-serif;
       transition: var(--transition);
       box-sizing: border-box;
       background: #fafafa;
       color: var(--text-main);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .tax-input-group select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position-x: 96%;
+      background-position-y: center;
+      cursor: pointer;
     }
 
     .tax-input-group input:hover, 
@@ -95,19 +108,51 @@
       outline: none;
       border-color: var(--primary-color);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(0,0,0,0.06);
+      box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.1);
     }
 
     .tax-input-group input[type="file"] {
-      padding: 12px;
-      background: #f8f9fa;
+      padding: 16px;
+      background: #fafafa;
       cursor: pointer;
-      border: 2px dashed var(--border-color);
+      border: 2px dashed rgba(10, 37, 64, 0.3);
+      color: var(--primary-color);
+      font-weight: 600;
+      border-radius: 12px;
+      padding-right: 48px; /* space for clear button */
     }
     
     .tax-input-group input[type="file"]:hover {
       border-color: var(--primary-color);
       background: #fff;
+    }
+
+    .file-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .file-clear-btn {
+      display: none;
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #e2e8f0;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .file-clear-btn:hover {
+      background: #cbd5e1;
+      color: #d82c0d;
     }
 
     .tax-submit-btn {
@@ -116,9 +161,9 @@
       color: #fff;
       padding: 16px 24px;
       border: none;
-      border-radius: 8px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
       font-size: 16px;
       letter-spacing: 0.5px;
       cursor: pointer;
@@ -127,7 +172,7 @@
       justify-content: center;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
       position: relative;
       overflow: hidden;
     }
@@ -137,17 +182,23 @@
       position: absolute;
       top: 0; left: -100%;
       width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
       transition: all 0.5s ease;
     }
 
     .tax-submit-btn:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      background: var(--primary-hover);
+      box-shadow: 0 6px 16px rgba(10, 37, 64, 0.3);
     }
 
     .tax-submit-btn:hover:not(:disabled)::after {
       left: 100%;
+    }
+
+    .tax-submit-btn:active:not(:disabled) {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
     }
 
     .tax-submit-btn:disabled {
@@ -155,6 +206,7 @@
       cursor: not-allowed;
       box-shadow: none;
       transform: translateY(0);
+      background: #94a3b8;
     }
 
     .spinner {
@@ -174,7 +226,7 @@
     .tax-message {
       margin-top: 20px;
       padding: 16px;
-      border-radius: 6px;
+      border-radius: 12px;
       font-size: 14px;
       line-height: 1.5;
       display: none;
@@ -201,6 +253,21 @@
       color: #2C6ECB;
       border: 1px solid #B4E1FA;
     }
+
+    .input-warning {
+      color: #d82c0d;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+      font-weight: 500;
+      background: #fff5f5;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #fed7d7;
+    }
   </style>
 
   <div class="page-width">
@@ -210,7 +277,7 @@
         <p>{{ block.settings.subtitle }}</p>
       </div>
       
-      <form id="tax-form" onsubmit="event.preventDefault(); submitForm();">
+      <form id="tax-form" onsubmit="submitForm(event);">
         <div class="tax-input-group">
           <label for="jurisdiction">Jurisdiction / Exemption Type</label>
           <select id="jurisdiction" name="jurisdiction" required>
@@ -290,16 +357,29 @@
           <option value="US_WY_RESELLER_EXEMPTION">Wyoming — Reseller</option>
           <option value="US_DC_RESELLER_EXEMPTION">Washington D.C. — Reseller</option>
           </select>
+          <div id="jurisdiction-warning" class="input-warning">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>The selected jurisdiction doesn't seem to match the uploaded document. Please review.</span>
+          </div>
         </div>
 
         <div class="tax-input-group">
           <label for="exemptionNumber">Exemption Number</label>
           <input type="text" id="exemptionNumber" name="exemptionNumber" required placeholder="e.g. 123-456-789">
+          <div id="number-warning" class="input-warning">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>AI has attempted to read your document and pre-fill this number. AI can make mistakes, so please verify it is exactly correct.</span>
+          </div>
         </div>
 
         <div class="tax-input-group">
           <label for="file">Certificate File (PDF or Image)</label>
-          <input type="file" id="file" name="file" accept="application/pdf,image/*" required>
+          <div class="file-input-wrapper">
+            <input type="file" id="file" name="file" accept="application/pdf,image/*" required>
+            <div id="file-clear-btn" class="file-clear-btn" title="Remove Document">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+          </div>
         </div>
 
         <button type="submit" id="submit-btn" class="tax-submit-btn">
@@ -319,19 +399,29 @@
       url: "/apps/tax-exemptions/uploadthing",
     });
 
-    window.submitForm = async function() {
+    window.submitForm = async function(event) {
+      event.preventDefault();
+      const form = document.getElementById('tax-form');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const btn = document.getElementById('submit-btn');
       const btnText = document.getElementById('btn-text');
       const btnSpinner = document.getElementById('btn-spinner');
       const msg = document.getElementById('status-msg');
-      const form = document.getElementById('tax-form');
       
       const fileInput = document.getElementById('file');
       const file = fileInput.files[0];
       const jurisdiction = document.getElementById('jurisdiction').value;
       const exemptionNumber = document.getElementById('exemptionNumber').value;
 
-      if (!file || !jurisdiction || !exemptionNumber) return;
+      if (!file || !jurisdiction || !exemptionNumber) {
+        msg.className = "tax-message error";
+        msg.innerText = "Please fill in all required fields and upload a document.";
+        return;
+      }
 
       btn.disabled = true;
       btnSpinner.style.display = 'block';
@@ -365,6 +455,10 @@
           msg.className = "tax-message success";
           msg.innerText = "🎉 Certificate submitted successfully! We will review your account shortly.";
           form.reset();
+          document.getElementById('number-warning').style.display = 'none';
+          document.getElementById('jurisdiction-warning').style.display = 'none';
+          document.getElementById('file-clear-btn').style.display = 'none';
+          window.latestOCRText = "";
         } else {
           throw new Error("SAVE_FAILED");
         }
@@ -386,6 +480,50 @@
       }
     };
 
+    window.latestOCRText = "";
+
+    function extractNumberFromText(text, jurisdiction) {
+      let match = null;
+      
+      // 1. Jurisdiction-Specific Priority Matches
+      if (jurisdiction) {
+        if (jurisdiction.includes('US_IL')) match = text.match(/\bE\d{8}\b/);
+        else if (jurisdiction.includes('US_FL')) match = text.match(/\b\d{2}-\d{10}\b/);
+        else if (jurisdiction.startsWith('CA_')) match = text.match(/\b\d{9}(?:\s*RT\d{4})?\b/);
+        else if (jurisdiction.includes('US_TX')) match = text.match(/\b[1-9]\d{10}\b/);
+        else if (jurisdiction.includes('US_NY') || jurisdiction.includes('US_WA')) match = text.match(/\b\d{9}\b/);
+      }
+
+      // 2. High-Confidence Global Formats
+      if (!match) {
+        const exactFormats = [
+           /\bE\d{8}\b/,           
+           /\b\d{3}-\d{3}-\d{3}\b/, 
+           /\b\d{2}-\d{7}\b/,       
+           /\b\d{9}(?:\s*RT\d{4})?\b/ 
+        ];
+        for (let regex of exactFormats) {
+           const m = text.match(regex);
+           if (m) { match = m; break; }
+        }
+      }
+
+      // 3. Smart Fallback (Ignore Zip/Phone)
+      if (!match) {
+         const candidates = text.match(/\b[A-Z0-9-]{7,15}\b/g) || [];
+         for (let cand of candidates) {
+            const digitCount = (cand.match(/\d/g) || []).length;
+            if (digitCount >= 4) {
+               if (/^\d{5}-\d{4}$/.test(cand)) continue;
+               if (/^\d{3}-\d{3}-\d{4}$/.test(cand) || /^\d{10}$/.test(cand)) continue;
+               match = [cand];
+               break;
+            }
+         }
+      }
+      return match ? match[0] : null;
+    }
+
     document.getElementById('file').addEventListener('change', async (e) => {
       const file = e.target.files[0];
       if (!file || !file.type.startsWith('image/')) return;
@@ -406,19 +544,89 @@
         }
 
         const { data: { text } } = await window.Tesseract.recognize(file, 'eng');
-        const numMatch = text.match(/\b[A-Z0-9-]{7,15}\b/);
+        console.log("[OCR Raw Text]", text);
+        window.latestOCRText = text;
         
-        if (numMatch && !document.getElementById('exemptionNumber').value) {
-           document.getElementById('exemptionNumber').value = numMatch[0];
+        const jurisdictionSelect = document.getElementById('jurisdiction');
+        const extractedNumber = extractNumberFromText(text, jurisdictionSelect.value);
+        
+        if (extractedNumber && !document.getElementById('exemptionNumber').value) {
+           document.getElementById('exemptionNumber').value = extractedNumber;
            msg.className = "tax-message success";
-           msg.innerText = "✨ Form pre-filled automatically! Please review the exemption number.";
+           msg.innerText = "✨ Document scanned successfully! Please review the fields below.";
+           document.getElementById('number-warning').style.display = 'flex';
         } else {
-           msg.className = "tax-message"; 
+           msg.className = "tax-message success"; 
+           msg.innerText = "Document uploaded. We couldn't auto-detect a number, please enter it manually.";
+        }
+
+        // Cross-reference jurisdiction
+        if (jurisdictionSelect.value) {
+          const selectedText = jurisdictionSelect.options[jurisdictionSelect.selectedIndex].text;
+          const locationName = selectedText.split('—')[0].trim().toLowerCase();
+          if (!text.toLowerCase().includes(locationName)) {
+            document.getElementById('jurisdiction-warning').style.display = 'flex';
+          } else {
+            document.getElementById('jurisdiction-warning').style.display = 'none';
+          }
         }
       } catch (err) {
          console.error("OCR Error:", err);
          msg.className = "tax-message"; 
       }
+    });
+
+    // Add event listener to re-evaluate jurisdiction warning and dynamically extract number if they change the dropdown
+    document.getElementById('jurisdiction').addEventListener('change', function() {
+      if (!document.getElementById('file').files[0] || !window.latestOCRText) return;
+      
+      const text = window.latestOCRText;
+      const selectedText = this.options[this.selectedIndex].text;
+      const locationName = selectedText.split('—')[0].trim().toLowerCase();
+      
+      if (!text.toLowerCase().includes(locationName)) {
+        document.getElementById('jurisdiction-warning').style.display = 'flex';
+      } else {
+        document.getElementById('jurisdiction-warning').style.display = 'none';
+      }
+
+      // Re-run number extraction with the new jurisdiction context
+      const newExtractedNumber = extractNumberFromText(text, this.value);
+      if (newExtractedNumber) {
+        document.getElementById('exemptionNumber').value = newExtractedNumber;
+        document.getElementById('number-warning').style.display = 'flex';
+      }
+    });
+
+    document.getElementById('file').addEventListener('change', function(e) {
+      const clearBtn = document.getElementById('file-clear-btn');
+      if (this.files && this.files.length > 0) {
+        clearBtn.style.display = 'flex';
+      } else {
+        clearBtn.style.display = 'none';
+      }
+    });
+
+    document.getElementById('file-clear-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Reset file input
+      const fileInput = document.getElementById('file');
+      fileInput.value = '';
+      this.style.display = 'none';
+      
+      // Reset jurisdiction
+      document.getElementById('jurisdiction').value = '';
+      document.getElementById('jurisdiction-warning').style.display = 'none';
+
+      // Reset exemption number
+      document.getElementById('exemptionNumber').value = '';
+      document.getElementById('number-warning').style.display = 'none';
+
+      // Reset status message
+      const msg = document.getElementById('status-msg');
+      msg.className = "tax-message";
+      msg.innerText = "";
     });
   </script>
 {% else %}
@@ -449,7 +657,7 @@
       "type": "color",
       "id": "primary_color",
       "label": "Primary Button Color",
-      "default": "#000000"
+      "default": "#00B3FF"
     },
     {
       "type": "color",

@@ -42,6 +42,10 @@ export async function getCertificate(id: string): Promise<Certificate | null> {
   return toCertificate(doc.id, doc.data()!);
 }
 
+export async function deleteCertificate(id: string): Promise<void> {
+  await db.collection(CERTIFICATES).doc(id).delete();
+}
+
 export async function updateCertificateStatus(
   id: string,
   status: CertificateStatus,
@@ -154,7 +158,6 @@ export async function upsertShopSettings(
     .set({ shop, ...data }, { merge: true });
 }
 
-/** Called at app install — initializes shopSettings with plan detection. */
 export async function initShopSettings(
   shop: string,
   planIsPlus: boolean
@@ -176,4 +179,40 @@ export async function initShopSettings(
       },
       { merge: true }
     );
+}
+
+// ── GDPR Helpers ─────────────────────────────────────────────────────────────
+
+export async function deleteCustomerData(shop: string, customerId: string): Promise<void> {
+  const snapshot = await db
+    .collection(CERTIFICATES)
+    .where("shop", "==", shop)
+    .where("shopifyCustomerId", "==", customerId)
+    .get();
+
+  // Delete individually to avoid 500 batch limit for large data sets
+  await Promise.all(snapshot.docs.map(doc => doc.ref.delete()));
+}
+
+export async function getCustomerData(shop: string, customerId: string): Promise<Certificate[]> {
+  const snapshot = await db
+    .collection(CERTIFICATES)
+    .where("shop", "==", shop)
+    .where("shopifyCustomerId", "==", customerId)
+    .get();
+
+  return snapshot.docs.map((doc) => toCertificate(doc.id, doc.data()));
+}
+
+export async function deleteShopData(shop: string): Promise<void> {
+  const certsSnapshot = await db
+    .collection(CERTIFICATES)
+    .where("shop", "==", shop)
+    .get();
+
+  // Delete individually to avoid 500 batch limit
+  await Promise.all(certsSnapshot.docs.map(doc => doc.ref.delete()));
+  
+  const settingsRef = db.collection(SHOP_SETTINGS).doc(shop);
+  await settingsRef.delete();
 }

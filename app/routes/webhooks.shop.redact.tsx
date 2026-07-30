@@ -13,13 +13,20 @@
  */
 import type { ActionFunctionArgs } from "react-router";
 import { authenticate } from "../shopify.server";
+import { deleteShopData } from "../lib/firestore.server";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const { topic, shop } = await authenticate.webhook(request);
 
   console.log(`[webhook] ${topic} received for shop: ${shop}`);
 
-  // TODO: Implement full shop data deletion
+  try {
+    await deleteShopData(shop);
+    console.log(`[webhook] Redacted all data for shop ${shop}`);
+  } catch (e) {
+    console.error(`[webhook] Failed to redact data for shop ${shop}:`, e);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 
   return new Response(null, { status: 200 });
 };

@@ -1,8 +1,8 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "11ab8143e646040a98994029dda86aa8"
-name = "tax-exemption-manager"
-application_url = "https://tax-exemption-manager-1021528646413.us-central1.run.app"
+name = "Exemptify: Tax Exemptions"
+application_url = "https://tax-exemption-manager.vercel.app"
 embedded = true
 
 [access_scopes]
@@ -28,15 +28,21 @@ api_version = "2026-04"
 
 [auth]
 redirect_urls = [
-  "https://tax-exemption-manager-1021528646413.us-central1.run.app/auth/callback",
-  "https://tax-exemption-manager-1021528646413.us-central1.run.app/auth/shopify/callback",
-  "https://tax-exemption-manager-1021528646413.us-central1.run.app/api/auth/callback"
+  "https://tax-exemption-manager.vercel.app/auth/callback",
+  "https://tax-exemption-manager.vercel.app/auth/shopify/callback",
+  "https://tax-exemption-manager.vercel.app/api/auth/callback"
 ]
 
 [build]
 automatically_update_urls_on_dev = true
 
 [app_proxy]
-url = "https://tax-exemption-manager-1021528646413.us-central1.run.app/api/proxy"
+url = "https://tax-exemption-manager.vercel.app/api/proxy"
 subpath = "tax-exemptions"
 prefix = "apps"
+
+[webhooks.privacy_compliance]
+customer_deletion_url = "https://tax-exemption-manager.vercel.app/webhooks/customers/redact"
+customer_data_request_url = "https://tax-exemption-manager.vercel.app/webhooks/customers/data_request"
+shop_deletion_url = "https://tax-exemption-manager.vercel.app/webhooks/shop/redact"
+

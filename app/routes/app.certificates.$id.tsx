@@ -1,8 +1,8 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
-import { useLoaderData, useSubmit, useNavigation, useNavigate } from "react-router";
+import { useLoaderData, useSubmit, useNavigation, useNavigate, useActionData, redirect } from "react-router";
 import { authenticate } from "../shopify.server";
-import { getCertificate, updateCertificateStatus, getShopSettings } from "../lib/firestore.server";
+import { getCertificate, updateCertificateStatus, getShopSettings, deleteCertificate } from "../lib/firestore.server";
 import { getFileViewUrl } from "../lib/storage.server";
 import { sendCustomerNotification } from "../lib/email.server";
 import {
@@ -162,7 +162,7 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
       }
 
       // 2. Update Firestore status
-      await updateCertificateStatus(id, "REJECTED", { rejectionReason: "Exemption was manually revoked by admin." });
+      await updateCertificateStatus(id, "REVOKED", { rejectionReason: "Exemption was manually revoked by admin." });
       
       const settings = await getShopSettings(shop);
       if (settings?.customerNotificationsEnabled && cert.customerEmail && cert.customerEmail.includes("@")) {
@@ -186,6 +186,9 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
       }
 
       return { success: true };
+    } else if (intent === "DELETE") {
+      await deleteCertificate(id);
+      return redirect("/app");
     }
   } catch (err: any) {
     console.error("[Action Error]", err);
@@ -201,9 +204,21 @@ export default function CertificateDetail() {
   const navigation = useNavigation();
   const navigate = useNavigate();
   const shopify = useAppBridge();
+  const actionData = useActionData<typeof action>();
 
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [revokeModalOpen, setRevokeModalOpen] = useState(false);
   const [rejectionReason, setRejectionReason] = useState("");
+  const [rejectError, setRejectError] = useState("");
+
+  useEffect(() => {
+    if (actionData?.error) {
+      shopify.toast.show(actionData.error, { isError: true });
+    } else if (actionData?.success) {
+      shopify.toast.show("Action completed successfully");
+    }
+  }, [actionData, shopify]);
 
   const isSubmitting = navigation.state === "submitting";
 
@@ -213,11 +228,22 @@ export default function CertificateDetail() {
 
   const handleRevoke = () => {
     submit({ intent: "REVOKE" }, { method: "post" });
+    setRevokeModalOpen(false);
   };
 
   const handleReject = () => {
+    if (!rejectionReason.trim()) {
+      setRejectError("A rejection reason is required so the customer knows why it was rejected.");
+      return;
+    }
+    setRejectError("");
     submit({ intent: "REJECT", rejectionReason }, { method: "post" });
     setRejectModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    submit({ intent: "DELETE" }, { method: "post" });
+    setDeleteModalOpen(false);
   };
 
   const getStatusBadge = (status: string) => {
@@ -228,6 +254,8 @@ export default function CertificateDetail() {
         return <Badge tone="attention">Pending</Badge>;
       case "REJECTED":
         return <Badge tone="critical">Rejected</Badge>;
+      case "REVOKED":
+        return <Badge tone="critical">Revoked</Badge>;
       case "EXPIRED":
         return <Badge tone="critical">Expired</Badge>;
       default:
@@ -253,33 +281,45 @@ export default function CertificateDetail() {
           disabled: isSubmitting,
         } : undefined
       }
-      secondaryActions={
-        cert.status === "PENDING" ? [
-          {
-            content: "Reject",
-            destructive: true,
-            onAction: () => setRejectModalOpen(true),
-            loading: isSubmitting,
-            disabled: isSubmitting,
-          },
-        ] : cert.status === "APPROVED" ? [
-          {
-            content: "Revoke Exemption",
-            destructive: true,
-            onAction: handleRevoke,
-            loading: isSubmitting,
-            disabled: isSubmitting,
-          }
-        ] : undefined
-      }
+      secondaryActions={[
+        ...(cert.status === "PENDING" ? [{
+          content: "Reject",
+          destructive: true,
+          onAction: () => setRejectModalOpen(true),
+          loading: isSubmitting,
+          disabled: isSubmitting,
+        }] : []),
+        ...(cert.status === "APPROVED" ? [{
+          content: "Revoke Exemption",
+          destructive: true,
+          onAction: () => setRevokeModalOpen(true),
+          loading: isSubmitting,
+          disabled: isSubmitting,
+        }] : []),
+        {
+          content: "Remove Certificate",
+          destructive: true,
+          onAction: () => setDeleteModalOpen(true),
+          loading: isSubmitting,
+          disabled: isSubmitting,
+        }
+      ]}
     >
       <TitleBar title="Certificate Details" />
       <Layout>
         <Layout.Section>
-          {cert.status === "REJECTED" && cert.rejectionReason && (
+          {(cert.status === "REJECTED" || cert.status === "REVOKED") && cert.rejectionReason && (
             <Box paddingBlockEnd="400">
-              <Banner title="Certificate rejected" tone="critical">
+              <Banner title={`Certificate ${cert.status.toLowerCase()}`} tone="critical">
                 <p><strong>Reason:</strong> {cert.rejectionReason}</p>
+              </Banner>
+            </Box>
+          )}
+
+          {cert.status === "APPROVED" && (
+            <Box paddingBlockEnd="400">
+              <Banner title="Certificate approved" tone="success">
+                <p>This certificate is active and tax exemptions have been natively applied to the customer&apos;s Shopify account.</p>
               </Banner>
             </Box>
           )}
@@ -368,10 +408,72 @@ export default function CertificateDetail() {
             <TextField
               label="Rejection reason"
               value={rejectionReason}
-              onChange={setRejectionReason}
+              onChange={(val) => {
+                setRejectionReason(val);
+                if (val.trim()) setRejectError("");
+              }}
+              error={rejectError}
               multiline={4}
               autoComplete="off"
             />
+          </BlockStack>
+        </Modal.Section>
+      </Modal>
+
+      <Modal
+        open={revokeModalOpen}
+        onClose={() => setRevokeModalOpen(false)}
+        title="Revoke Tax Exemption"
+        primaryAction={{
+          content: "Revoke",
+          onAction: handleRevoke,
+          destructive: true,
+        }}
+        secondaryActions={[
+          {
+            content: "Cancel",
+            onAction: () => setRevokeModalOpen(false),
+          },
+        ]}
+      >
+        <Modal.Section>
+          <BlockStack gap="400">
+            <Text as="p" variant="bodyMd">
+              Are you sure you want to revoke this tax exemption?
+            </Text>
+            <Text as="p" variant="bodyMd">
+              This will officially invalidate the certificate, automatically remove the tax exemption tags from the customer&apos;s Shopify profile, and require them to pay taxes on future orders.
+            </Text>
+          </BlockStack>
+        </Modal.Section>
+      </Modal>
+
+      <Modal
+        open={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        title="Remove Certificate"
+        primaryAction={{
+          content: "Remove",
+          onAction: handleDelete,
+          destructive: true,
+        }}
+        secondaryActions={[
+          {
+            content: "Cancel",
+            onAction: () => setDeleteModalOpen(false),
+          },
+        ]}
+      >
+        <Modal.Section>
+          <BlockStack gap="400">
+            <Text as="p" variant="bodyMd">
+              Are you sure you want to completely remove this certificate from the system? This action cannot be undone. 
+            </Text>
+            {cert.status === "APPROVED" && (
+              <Text as="p" variant="bodyMd" tone="critical">
+                Note: Removing this certificate does not automatically remove the native tax exemption from the customer&apos;s profile. You will need to manually remove it in Shopify if necessary.
+              </Text>
+            )}
           </BlockStack>
         </Modal.Section>
       </Modal>

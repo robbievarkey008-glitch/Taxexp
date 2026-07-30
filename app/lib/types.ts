@@ -9,7 +9,7 @@ import type { Timestamp } from "firebase-admin/firestore";
 
 // ── Certificate document ─────────────────────────────────────────────────────
 
-export type CertificateStatus = "PENDING" | "APPROVED" | "REJECTED" | "EXPIRED";
+export type CertificateStatus = "PENDING" | "APPROVED" | "REJECTED" | "EXPIRED" | "REVOKED";
 export type BuyerType = "customer" | "company_location";
 
 export interface CertificateDoc {
