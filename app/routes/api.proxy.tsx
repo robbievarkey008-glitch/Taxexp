@@ -447,7 +447,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     msg.innerText = "";
   });
 
-  import { genUploader } from "https://esm.sh/uploadthing@7.4.1/client?deps=react";
+  import { genUploader } from "https://esm.sh/uploadthing@7.7.4/client?deps=react";
   const { uploadFiles } = genUploader({
     url: "${appUrl}/api/proxy/uploadthing",
   });
