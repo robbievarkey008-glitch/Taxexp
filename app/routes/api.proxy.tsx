@@ -447,7 +447,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
   import { genUploader } from "https://esm.sh/uploadthing@7.4.1/client?deps=react";
   const { uploadFiles } = genUploader({
-    url: window.location.pathname + "/uploadthing",
+    url: "${appUrl}/api/proxy/uploadthing",
   });
 
   window.submitForm = async function() {
