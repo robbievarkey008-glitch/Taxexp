@@ -14,8 +14,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     (opt) => `<option value="${opt.value}">${opt.label}</option>`
   ).join("");
 
-  // We use the full App URL for the uploadthing endpoint to bypass the proxy for the file payload.
-  const appUrl = process.env.SHOPIFY_APP_URL || "";
+  // Dynamically resolve the backend origin so it always matches exactly where the app is hosted (Vercel)
+  const appUrl = new URL(request.url).origin;
 
   const liquid = `
 <style>
