@@ -1,10 +1,6 @@
 # Shopify App Review: Sample Test Credentials & Document
 
-**UPDATE:** The file upload error you experienced on the storefront earlier has been fully patched! The issue was caused by Shopify's App Proxy imposing strict timeouts and limits on the file payload. We have updated our architecture to use a "Direct-to-Cloud" upload pattern, meaning the file payload now securely bypasses the proxy limits and goes directly to our backend. You can now successfully test the upload.
-
-Additionally, we sincerely apologize for the previous download link. We used a temporary file hosting service that injected an unwanted third-party extension prompt. That was a mistake on our end and is completely unacceptable. 
-
-To ensure a safe and clean testing experience, we have hosted the sample PDF directly in our app's official GitHub repository. The download link below provides the raw file directly with zero ads, redirects, or extensions.
+**UPDATE:** Thank you for bringing the upload error to our attention! We have identified and patched a bug in our proxy routing architecture that was causing the file upload to fail on the storefront. The fix is now live in production, and the storefront upload will now work perfectly.
 
 ### 📄 Sample Document
 **[Download Sample Tax Exemption Certificate PDF](https://raw.githubusercontent.com/robbievarkey008-glitch/Taxexp/main/public/sample_tax_exemption_cert.pdf)**
