@@ -3,7 +3,7 @@
 Thank you for the detailed feedback. We have provided a ready-to-use sample tax exemption certificate PDF so you can fully test the file upload functionality on the storefront.
 
 ### 📄 Sample Document
-**[Download Sample Tax Exemption Certificate PDF](https://tmpfiles.org/dl/wiwmDM8msu83/sample_tax_exemption_cert.pdf)**
+**[Download Sample Tax Exemption Certificate PDF](https://tax-exemption-manager.vercel.app/sample_tax_exemption_cert.pdf)**
 
 ### 🧪 How to test the storefront upload:
 1. Go to your test store's storefront.
