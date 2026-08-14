@@ -14,8 +14,10 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     (opt) => `<option value="${opt.value}">${opt.label}</option>`
   ).join("");
 
-  // Dynamically resolve the backend origin so it always matches exactly where the app is hosted (Vercel)
-  const appUrl = new URL(request.url).origin;
+  // Use the explicit Vercel production URL so the uploadthing client
+  // calls our backend directly (with CORS enabled), bypassing the Shopify proxy
+  // which strips headers and interferes with the presigned URL handshake.
+  const appUrl = "https://tax-exemption-manager.vercel.app";
 
   const liquid = `
 <style>
