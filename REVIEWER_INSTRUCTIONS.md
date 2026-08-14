@@ -1,6 +1,8 @@
 # Shopify App Review: Sample Test Credentials & Document
 
-Thank you for the detailed feedback. We have provided a ready-to-use sample tax exemption certificate PDF so you can fully test the file upload functionality on the storefront.
+First, we sincerely apologize for the previous download link. We used a temporary file hosting service that injected an unwanted third-party extension prompt. That was a mistake on our end and is completely unacceptable. 
+
+To ensure a safe and clean testing experience, we have hosted the sample PDF directly in our app's official GitHub repository. The download link below provides the raw file directly with zero ads, redirects, or extensions.
 
 ### 📄 Sample Document
 **[Download Sample Tax Exemption Certificate PDF](https://raw.githubusercontent.com/robbievarkey008-glitch/Taxexp/main/public/sample_tax_exemption_cert.pdf)**
@@ -14,6 +16,4 @@ Thank you for the detailed feedback. We have provided a ready-to-use sample tax 
 6. Enter **CA-78234** as the exemption number.
 7. Click **Submit**.
 
-The certificate will upload successfully and a confirmation message will appear. This is a standard California Sales Tax Exemption Certificate (Resale type), which is the most common document type our app handles.
-
-If the file link above expires, please reach out and we will provide a fresh one immediately. Thank you!
+The certificate will upload successfully and a confirmation message will appear. This is a standard California Sales Tax Exemption Certificate (Resale type), which is the most common document type our app handles. Thank you for your time and review!
