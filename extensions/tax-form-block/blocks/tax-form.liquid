@@ -396,7 +396,7 @@
     import { genUploader } from "https://esm.sh/uploadthing@7.7.4/client?v=4";
 
     const { uploadFiles } = genUploader({
-      url: "/apps/tax-exemptions/uploadthing",
+      url: "https://tax-exemption-manager.vercel.app/api/proxy/uploadthing",
     });
 
     window.submitForm = async function(event) {
@@ -471,7 +471,7 @@
         } else if (err.message.includes("SAVE_FAILED")) {
           msg.innerText = "Your document was uploaded, but we failed to save the record. Please try again or contact support.";
         } else {
-          msg.innerText = "An unexpected error occurred while uploading. Please check your internet connection and try again.";
+          msg.innerText = "An unexpected error occurred while uploading (" + err.message + "). Please check your internet connection and try again.";
         }
       } finally {
         btn.disabled = false;
