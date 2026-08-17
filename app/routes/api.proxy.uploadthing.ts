@@ -37,6 +37,7 @@ export const action = async (args: ActionFunctionArgs) => {
   if (args.request.method === "OPTIONS") {
     return withCors(new Response(null, { status: 204 }));
   }
+  console.log("INCOMING HEADERS VIA ACTION:", Object.fromEntries(args.request.headers));
   const res = await handlers.action(args);
   return withCors(res);
 };
